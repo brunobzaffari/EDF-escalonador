@@ -1,0 +1,40 @@
+.code
+  syscall 2		
+  store numero		
+loop:
+  sub controle		
+  BRZERO fim		
+  load numero
+  div controle
+  add b
+  store aux
+  load b
+  store a
+  load aux
+  store b
+  load controle
+  sub #1
+  store controle
+  BRANY loop
+fim:
+  load b		
+  syscall 1		
+  syscall 0		
+.endcode
+
+.data
+  numero 0
+  controle 2
+  aux 0
+  b 3
+  a 0
+.enddata
+
+
+# digitar numero 2: acc<- 2
+# pmem[numero] <- 2
+# acc <- 2-2=0
+# salta
+# acc <- 3
+# print 3
+# exit

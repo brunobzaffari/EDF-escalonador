@@ -1,0 +1,47 @@
+.code
+  load controle		
+  syscall 2		
+  store controle	
+loop:
+  BRZERO fim		
+  load a		
+  add b			
+  store aux		
+  load b		
+  store a		
+  load aux		
+  store b		
+  load controle		
+  sub #1		
+  store controle	
+  BRANY loop
+fim:
+  load b		
+  syscall 1		
+  syscall 0
+.endcode
+
+.data
+  a 0
+  b 1
+  controle 0
+  aux 0
+.enddata
+
+# acc <- 0
+# digitar numer 1: acc<- 1
+# pmem[controle] <- 1
+# 2a. Volta sai
+# acc <- 0
+# acc<- 0+1 = 1
+# pmem[aux] <- 1
+# acc <- 1
+# pmem[a] <- 1
+# acc <- 1
+# pmem[b] <- 1
+# acc <- 1
+# acc<- 1-1=0
+# pmem[controle] <- 0
+# acc <- 1
+# print 1
+
